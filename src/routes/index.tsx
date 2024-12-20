@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import "../scss/style.scss";
 import ResponsiveAppBar from "../Components/Appbar";
 import { Box } from '@mui/material';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const user = {
     firstName: 'Isabela',
@@ -24,8 +25,8 @@ const AppRoutes = () => {
             </Routes>
 
             <Box sx={{ textAlign: 'center', mt: 10 }}>
-                <p>Boas Vindas Suzano - v1.00.1000</p>
-                <p>Fase Empresa Suzano/SENAI MS</p>
+                <p>Boas Vindas Suzano - v1.00.1001</p>
+                <p>Fase Empresa Suzano/SENAI-MS</p>
             </Box>
         </Router>
     );
