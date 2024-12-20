@@ -1,15 +1,27 @@
 import React, { useEffect } from 'react';
 import { Box, Button, Container, Typography } from '@mui/material';
+import { user } from '../routes';
 
 const Home = () => {
+
     useEffect(() => {
         document.title = "Home - Boas Vindas Suzano";
     }, []);
     return (<>
         <Container maxWidth='lg'>
-            <Typography variant='h4' id="home_title">Bem vindo a Suzano</Typography>
+            <Typography variant='h4' id="home_title">Bem vindo(a) {user?.firstName} </Typography>
 
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nesciunt. Libero quo animi sequi beatae, harum officiis sunt laborum ad non, dolores facere labore nostrum explicabo maiores dolor fuga vitae illo mollitia similique excepturi voluptatem necessitatibus quasi porro. Ex aliquid odio fuga maxime laudantium sapiente dicta vel. Delectus corrupti praesentium natus, laudantium nemo sit maiores placeat magnam totam expedita dolorum rem sint voluptas aut accusantium aperiam molestias repellat nostrum? Ipsum consectetur asperiores similique fugit rem tempore, eaque dicta, impedit voluptates numquam labore ad libero deleniti quam ea repellendus dolor nam unde architecto? Modi assumenda, minima vitae nostrum eaque placeat, ipsum voluptate provident voluptas nesciunt ullam. Reprehenderit voluptate ullam, quasi ad blanditiis, odio excepturi quisquam aperiam explicabo, obcaecati quam et a illum molestias dignissimos? Architecto quia nemo eaque, voluptatum animi sed a molestias magnam corporis, nostrum esse, ex temporibus totam nulla modi! Aut quisquam eius, quis pariatur itaque quos dignissimos sed quam animi iure quia eveniet, cupiditate at. Provident accusantium iusto est assumenda ullam, neque nisi sed ipsa tempora harum temporibus, iure explicabo architecto distinctio culpa impedit! Dicta fuga id quidem a ab accusamus, placeat laborum ducimus esse exercitationem veniam porro atque distinctio est saepe beatae enim eius eos libero?</p>
+            <Typography sx={{ fontWeight: '300', fontSize: 21, mt: 2, textAlign: 'justify' }}>Estamos muito felizes em tê-lo(a) como parte da nossa equipe. Como novo colaborador(a), você faz parte de uma empresa com uma longa trajetória de inovação, sustentabilidade e compromisso com a transformação. Acreditamos que sua chegada será um grande diferencial para o nosso crescimento contínuo. Aqui, você terá a oportunidade de desenvolver suas habilidades, colaborar com uma equipe talentosa e contribuir para o sucesso de uma das maiores empresas de papel e celulose do mundo. A Suzano é mais que uma empresa, é um ambiente que valoriza o respeito, a ética e o desenvolvimento de cada um de seus colaboradores. Vamos juntos, trabalhar para continuar a nossa jornada de sucesso.</Typography>
+
+
+            <Box display={'flex'} justifyContent={'center'} mt={2}>
+                <img src='/images/isabela.jpg' style={{
+                    width: 200,
+                    height: 220
+                }} />
+
+            </Box>
+
         </Container>
     </>);
 }

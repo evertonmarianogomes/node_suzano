@@ -7,6 +7,11 @@ import "../scss/style.scss";
 import ResponsiveAppBar from "../Components/Appbar";
 import { Box } from '@mui/material';
 
+export const user = {
+    firstName: 'Isabela',
+    lastName: 'Oliva'
+};
+
 const AppRoutes = () => {
     return (
         <Router>

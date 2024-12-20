@@ -12,12 +12,19 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import { user } from "../routes/index";
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-const pages = [{
-    name: 'Sobre', to: '/about'
-}];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+    { name: 'Sobre', to: '/about' },
+    { name: 'Cultura', to: '/' },
+    { name: 'Normas e Procedimentos', to: '/' },
+    { name: 'Benefícios', to: '/' },
+    { name: 'Estrutura', to: '/' },
+    { name: 'Treinamento', to: '/' },
+    { name: 'Fale Conosco', to: '/' },
+
+];
+const settings = ['Perfil', 'Sair'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -42,11 +49,9 @@ function ResponsiveAppBar() {
         <AppBar position="fixed"
             elevation={0}
             sx={{
-                // backgroundColor: 'rgba(255, 255, 255, 0.8)', // Cor com transparência
                 backgroundColor: 'transparent',
                 backdropFilter: 'blur(10px)', // Efeito de desfoque
                 WebkitBackdropFilter: 'blur(10px)', // Compatibilidade com Safari
-                // backgroundColor: '#e7e6e6',
                 color: '#333',
                 boxShadow: 'none',
             }}>
@@ -144,9 +149,9 @@ function ResponsiveAppBar() {
                         ))}
                     </Box>
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Opções de Usuário">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt={user?.firstName} src="/static/images/avatar/2.jpg" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -165,6 +170,7 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
+                            <MenuItem disabled>{user?.firstName} {user?.lastName}</MenuItem>
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
