@@ -1,0 +1,12 @@
+.image-container {
+    width: 100%; // Largura do contêiner igual à largura da tela
+    overflow-x: auto; // Habilita a rolagem horizontal
+    overflow-y: hidden; // Remove a rolagem vertical (opcional)
+    white-space: nowrap; // Impede quebra de linha (aplicável se houver elementos inline)
+}
+
+.scrollable-image {
+    display: block; // Evita espaços em branco extras
+    max-height: 100vh; // Limita a altura da imagem à altura da tela
+    width: auto; // Mantém a proporção da imagem
+}
