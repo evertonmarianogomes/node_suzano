@@ -25,7 +25,7 @@ const AppRoutes = () => {
             </Routes>
 
             <Box sx={{ textAlign: 'center', mt: 10 }}>
-                <p>Boas Vindas Suzano - v1.00.1001</p>
+                <p>Boas Vindas Suzano - v1.00.1002</p>
                 <p>Fase Empresa Suzano/SENAI-MS</p>
             </Box>
         </Router>
