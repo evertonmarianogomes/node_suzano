@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,22 +13,35 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { user } from "../routes/index";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+import { AboutMenu } from './AboutMenu';
 
 const pages = [
-    { name: 'Sobre', to: '/about' },
-    { name: 'Cultura', to: '/' },
-    { name: 'Normas e Procedimentos', to: '/' },
-    { name: 'Benefícios', to: '/' },
-    { name: 'Estrutura', to: '/' },
-    { name: 'Treinamento', to: '/' },
-    { name: 'Fale Conosco', to: '/' },
+    { name: 'Cultura', to: '/cultura' },
+    { name: 'Normas e Procedimentos', to: '/documents' },
+    { name: 'Benefícios', to: '/benefits' },
+    { name: 'Estrutura', to: '/orgchart' },
+    { name: 'Treinamento', to: '/opportunities' },
+    { name: 'Fale Conosco', to: '/faq' },
 
 ];
 const settings = ['Perfil', 'Sair'];
 
 function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);;
+
+    // Abre o menu
+    const handleClick = (event: any) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    // Fecha o menu
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -89,6 +102,7 @@ function ResponsiveAppBar() {
                         >
                             <MenuIcon />
                         </IconButton>
+                        {/* Mobile Menu */}
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -105,6 +119,16 @@ function ResponsiveAppBar() {
                             onClose={handleCloseNavMenu}
                             sx={{ display: { xs: 'block', md: 'none' } }}
                         >
+                            <Link to="/about" style={{ textDecoration: 'none', color: '#45433a' }}>
+                                <MenuItem onClick={handleCloseNavMenu} >
+                                    <Typography sx={{ textAlign: 'center' }}>Sobre</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link to="/valores" style={{ textDecoration: 'none', color: '#45433a' }}>
+                                <MenuItem onClick={handleCloseNavMenu} >
+                                    <Typography sx={{ textAlign: 'center' }}>Missão, visão e valores</Typography>
+                                </MenuItem>
+                            </Link>
                             {pages.map((page) => (
                                 <Link to={page.to} style={{ textDecoration: 'none', color: '#45433a' }}>
                                     <MenuItem key={page.name} onClick={handleCloseNavMenu} >
@@ -113,6 +137,8 @@ function ResponsiveAppBar() {
                                 </Link>
                             ))}
                         </Menu>
+
+                        {/* End Mobile Menu */}
                     </Box>
 
                     {/* Mobile Title */}
@@ -135,6 +161,10 @@ function ResponsiveAppBar() {
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+                        {/* ABOUT MENU */}
+                        <AboutMenu />
+
                         {pages.map((page) => (
                             <Link to={page.to} style={{ textDecoration: 'none' }}>
                                 <Button
@@ -144,7 +174,6 @@ function ResponsiveAppBar() {
                                 >
                                     {page.name}
                                 </Button>
-
                             </Link>
                         ))}
                     </Box>
