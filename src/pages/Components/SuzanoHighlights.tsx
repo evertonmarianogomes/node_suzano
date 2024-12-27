@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(() => ({
     position: "relative",
     overflow: "hidden",
     borderRadius: "16px",
@@ -36,7 +36,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
     },
 }));
 
-const StyledHeader = styled(CardHeader)(({ theme }) => ({
+const StyledHeader = styled(CardHeader)(() => ({
     textAlign: "center",
     background: "linear-gradient(90deg, #4caf50, #2196f3)",
     WebkitBackgroundClip: "text",
